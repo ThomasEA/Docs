@@ -1,0 +1,83 @@
+Especificações para implementação de app com suporte a múltiplos dispositivos:
+
+Logical Density		Friendly Name		Scale
+(dpi)
+=====================================================
+120			LDPI			0.75x
+160			MDPI			1x	--> "baseline"
+240			HDPI			1.5x
+320			XHDPI			2x
+480			XXHDPI			3x
+640			XXXHDPI			4x
+
+*A medida média para um controle que necessita de interação através do touch é 50dp.
+
+*Os qualificadores de layout podem ser:
+	small
+	normal
+	large
+	xlarge
+
+	ou
+
+	sw600dp
+	w600dp
+	h600dp
+	sw700dp
+
+*Também é possível criar Values contendo os valores específicos para multipos dispositivos:
+	values-small
+	values-normal
+	values-large
+	values-xlarge
+	values-sw320dp
+	values-sw360dp
+	...
+	...
+
+		** Até a API 13 é utilizado a nomenclatura com sufixo small, normal, large e xlarge.
+		   Após a API 13, são utilizadas nomenclaturas conforme o tamanho da tela: sw360dp, w600dp, h720dp
+
+
+*Calculo de DP: px = dp * (dpi/160)
+Geração de imagens alternativas para multiplos dispositivos:
+
+PNG Graphics
+
+PNG Size		Category		Scale
+=====================================================
+24px			LDPI			0.75x
+32px			MDPI			1x	--> "baseline"
+48px			HDPI			1.5x
+64px			XHDPI			2x
+96px			XXHDPI			3x
+128px			XXXHDPI			4x
+
+MyProject/
+  res/
+    drawable-xhdpi/
+        awesomeimage.png
+    drawable-hdpi/
+        awesomeimage.png
+    drawable-mdpi/
+        awesomeimage.png
+    drawable-ldpi/
+        awesomeimage.png
+
+Geração de ícones para a tela principal para multiplos dispositivos:
+
+Coloque os ícones da tela inicial nas pastas mipmap/.
+
+res/...
+    mipmap-ldpi/...
+        finished_launcher_asset.png
+    mipmap-mdpi/...
+        finished_launcher_asset.png
+    mipmap-hdpi/...
+        finished_launcher_asset.png
+    mipmap-xhdpi/...
+        finished_launcher_asset.png
+    mipmap-xxhdpi/...
+        finished_launcher_asset.png
+    mipmap-xxxhdpi/...
+        finished_launcher_asset.png
